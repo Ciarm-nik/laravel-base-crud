@@ -29,7 +29,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+      return view("users.create");
     }
 
     /**
@@ -40,7 +40,16 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newComicData =$request->all();
+
+        $newComic = new Comic();
+        $newComic ->id = $newComicData["id"];
+        $newComic ->title = $newComicData["title"];
+        $newComic ->description = $newComicData["description"];
+
+        $newComic->save();
+
+        return redirect()->route('users.show', $newComic->id);
     }
 
     /**
