@@ -21,3 +21,15 @@ Route::get('/', function () {
 // Comic
 Route::get("/users", "ComicController@index")->name("users.index");
 
+
+Route::post("/users", "ComicController@store")->name("users.store");
+
+
+Route::get("/users/create", "ComicController@create")->name("users.create");
+
+
+Route::get("/users/{user}", "ComicController@show")->name("users.show");
+
+
+
+
