@@ -19,18 +19,18 @@
     <label for="thumb">Thumb</label>
     <input type="text" name="thumb" id="text">
 
-<br>
+    <br>
     <label for="price">price</label>
-    <input type="text" name="thumb" id="text">
-<br>
+    <input type="text" name="price" id="text">
+    <br>
     <label for="series">Series</label>
     <input type="text" name="series" id="text">
-<br>
+    <br>
     <label for="sale_date">Sale_date</label>
     <input type="text" name="sale_date" id="text">
-<br>
+    <br>
     <label for="type">Type</label>
     <input type="text" name="type" id="text">
-<br>
+    <br>
     <input type="submit" value="Invia">
 </form>

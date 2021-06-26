@@ -18,7 +18,7 @@ class ComicController extends Controller
         $users = Comic::all();
 
         return view("users.index", [
-            "users"=> $users
+            "users" => $users
         ]);
     }
 
@@ -29,7 +29,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-      return view("users.create");
+        return view("users.create");
     }
 
     /**
@@ -40,13 +40,13 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $newComicData =$request->all();
+        $newComicData = $request->all();
 
         $newComic = new Comic();
-        $newComic ->id = $newComicData["id"];
-        $newComic ->title = $newComicData["title"];
-        $newComic ->description = $newComicData["description"];
-
+        // $newComic->id = $newComicData["id"];
+        // $newComic->title = $newComicData["title"];
+        // $newComic->description = $newComicData["description"];
+        $newComic->fill($newComicData);
         $newComic->save();
 
         return redirect()->route('users.show', $newComic->id);
@@ -62,8 +62,12 @@ class ComicController extends Controller
     {
         // $user= Comic::find($id);
 
-         return view("users.show", [
-         "user" => $user
+        if(is_null($user)){
+            abort(404);
+        }
+
+        return view("users.show", [
+            "user" => $user
         ]);
     }
 
@@ -73,9 +77,16 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit($id){
+        $user = Comic::findOrFail($id);
+
+        /*  if(is_null($user)){
+                 abort(404);
+             } */
+
+        return view("users.edit", [
+            "user" => $user
+        ]);
     }
 
     /**
@@ -87,7 +98,12 @@ class ComicController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = Comic::findOrFail($id);
+        $formData = $request->all();
+
+        $user->update($formData);
+
+        return   redirect()->route("users.show", $user->id);
     }
 
     /**
