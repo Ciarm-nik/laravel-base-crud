@@ -34,4 +34,7 @@ Route::get("/users/{user}", "ComicController@show")->name("users.show");
 Route::match(["PUT",  "PATCH"], "/users/{user}", "ComicController@update")->name("users.update");
 
 
+Route::delete("/users/{user}", "ComicController@destroy")->name("users.destroy");
+
+
 Route::get("/users/{user}/edit", "ComicController@edit")->name("users.edit");
