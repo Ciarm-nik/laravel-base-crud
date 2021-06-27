@@ -1,40 +1,57 @@
-<a href="{{route('users.index')}}">Torna alla home</a>
+@extends('layout.default')
 
-<form action="{{route("users.update", $user->id)}}" method="post">
+
+
+<button type="button" class="btn btn-success">
+    <a href="{{ route('users.index') }}">Torna alla home</a>
+</button>
+
+<form class="form" action="{{route("users.update", $user->id)}}" method="post">
     @csrf
 
     @method('PATCH')
 
-    <label for="ID">ID</label>
-    <input type="text" name="id" id="name" value={{$user->id}}>
+<div class="mb-3">
+    <label class="form-label" for="ID">ID</label>
+    <input class="form-control" type="text" name="id" id="name" value={{$user->id}}>
+</div>
 
-    <br>
+<div class="mb-3">
+    <label class="form-label" for="title">Title</label>
+    <input class="form-control" type="text" name="title" id="text" value={{$user->title}}>
+</div>
+   
+<div class="mb-3">
+    <label class="form-label" for="description">Description</label>
+    <input class="form-control" type="text" name="description" id="text" value={{$user->description}}>
+</div>
+  
+<div class="mb-3">
+    <label class="form-label" for="thumb">Thumb</label>
+    <input class="form-control" type="text" name="thumb" id="text" value={{$user->thumb}}>
+</div>
 
-    <label for="title">Title</label>
-    <input type="text" name="title" id="text" value={{$user->title}}>
+    <div class="mb-3">
+    <label class="form-label" for="price">price</label>
+    <input class="form-control" type="text" name="thumb" id="text" value={{$user->price}}>
+</div>
 
-    <br>
+    <div class="mb-3">
+    <label class="form-label" class="form-label" for="series">Series</label>
+    <input class="form-control" type="text" name="series" id="text" value={{$user->series}}>
+</div>
 
-    <label for="description">Description</label>
-    <input type="text" name="description" id="text" value={{$user->description}}>
+    <div class="mb-3">
+    <label class="form-label" for="sale_date">Sale_date</label>
+    <input class="form-control" type="text" name="sale_date" id="text" value={{$user->sale_date}}>
+</div>
 
-    <br>
+    <div class="mb-3">
+    <label class="form-label" for="type">Type</label>
+    <input class="form-control" type="text" name="type" id="text" value={{$user->type}}>
+</div>
 
-    <label for="thumb">Thumb</label>
-    <input type="text" name="thumb" id="text" value={{$user->thumb}}>
-
-    <br>
-    <label for="price">price</label>
-    <input type="text" name="thumb" id="text" value={{$user->price}}>
-    <br>
-    <label for="series">Series</label>
-    <input type="text" name="series" id="text" value={{$user->series}}>
-    <br>
-    <label for="sale_date">Sale_date</label>
-    <input type="text" name="sale_date" id="text" value={{$user->sale_date}}>
-    <br>
-    <label for="type">Type</label>
-    <input type="text" name="type" id="text" value={{$user->type}}>
-    <br>
-    <input type="submit" value="Invia">
+    <div>
+     <input class="btn btn-primary" type="submit" value="Invia">
+    </div>
 </form>

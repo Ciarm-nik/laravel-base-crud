@@ -1,0 +1,28 @@
+button a{
+    text-decoration: none;
+    color: white;
+}
+
+button a:hover{
+    color: white;
+}
+
+button {
+    margin-bottom: 2px;
+}
+
+.contents{
+    display: contents;
+}
+
+.form{
+    width:50%;
+    margin:auto;
+}
+
+.flex{
+    margin-top: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

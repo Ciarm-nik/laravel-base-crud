@@ -1,36 +1,59 @@
-<form action="{{ route('users.store') }}" method="post">
+@extends('layout.default')
+
+<button type="button" class="btn btn-success">
+    <a href="{{ route('users.index') }}">Torna alla home</a>
+</button>
+
+
+<form class="form" action="{{ route('users.store') }}" method="post">
     @csrf
 
-    <label for="ID">ID</label>
-    <input type="text" name="id" id="name">
 
-    <br>
+    <div class="mb-3">
+        <label class="form-label" for="ID">ID</label>
+        <input class="form-control" type="text" name="id" id="name">
+    </div>
 
-    <label for="title">Title</label>
-    <input type="text" name="title" id="text">
+    <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input class="form-control" type="text" name="title" id="text">
 
-    <br>
+    </div>
 
-    <label for="description">Description</label>
-    <input type="text" name="description" id="text">
+    <div class="mb-3">
+        <label for="description">Description</label>
+        <input class="form-control" type="text" name="description" id="text">
+    </div>
 
-    <br>
 
-    <label for="thumb">Thumb</label>
-    <input type="text" name="thumb" id="text">
+    <div class="mb-3">
+        <label for="thumb">Thumb</label>
+        <input class="form-control" type="text" name="thumb" id="text">
+    </div>
 
-    <br>
-    <label for="price">price</label>
-    <input type="text" name="price" id="text">
-    <br>
-    <label for="series">Series</label>
-    <input type="text" name="series" id="text">
-    <br>
-    <label for="sale_date">Sale_date</label>
-    <input type="text" name="sale_date" id="text">
-    <br>
-    <label for="type">Type</label>
-    <input type="text" name="type" id="text">
-    <br>
-    <input type="submit" value="Invia">
+    <div class="mb-3">
+        <label for="price">Price</label>
+        <input class="form-control" type="text" name="price" id="text">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="series">Series</label>
+        <input class="form-control" type="text" name="series" id="text">
+
+    </div>
+
+    <div class="mb-3">
+        <label for="sale_date">Sale_date</label>
+        <input class="form-control" type="text" name="sale_date" id="text">
+
+    </div>
+
+    <div class="mb-3">
+        <label for="type">Type</label>
+        <input class="form-control" type="text" name="type" id="text">
+    </div>
+    <div>
+        <input class="btn btn-primary" type="submit" value="Invia">
+    </div>
 </form>
